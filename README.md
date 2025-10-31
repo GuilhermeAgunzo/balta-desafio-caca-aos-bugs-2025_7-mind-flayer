@@ -15,7 +15,7 @@ Neste processo eu aprendi:
 * ✅ API
 
 ## REGRAS DO DESAFIO
-- [ ] Realizar um fork do repositório do desafio
+- [x] Realizar um fork do repositório do desafio
 - [ ] Criar um relatório de vendas por cliente
 - [ ] Criar um relatório de faturamento por período
 

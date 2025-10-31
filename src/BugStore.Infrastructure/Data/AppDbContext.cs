@@ -1,4 +1,5 @@
 using BugStore.Domain.Entities;
+using BugStore.Domain.Reports;
 using Microsoft.EntityFrameworkCore;
 
 namespace BugStore.Infrastructure.Data;
@@ -10,6 +11,9 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
     public DbSet<Order> Orders { get; set; } = null!;
     public DbSet<OrderLine> OrderLines { get; set; } = null!;
 
+    public DbSet<CustomerOrderSummary> CustomerOrderSummary { get; set; } = null!;
+    public DbSet<RevenueByPeriod> RevenueByPeriod { get; set; } = null!;
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlite();
 
@@ -18,5 +22,12 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         base.OnModelCreating(modelBuilder);
 
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+
+        modelBuilder.Entity<CustomerOrderSummary>()
+            .HasNoKey()
+            .ToView("vwCustomerOrderSummary");
+
+        modelBuilder.Entity<RevenueByPeriod>()
+            .HasNoKey();
     }
 }
