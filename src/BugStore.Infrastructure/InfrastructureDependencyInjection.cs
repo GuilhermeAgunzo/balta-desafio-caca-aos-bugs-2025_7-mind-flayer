@@ -18,5 +18,6 @@ public static class InfrastructureDependencyInjection
         services.AddScoped<ICustomerRepository, CustomerRepository>();
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IOrderRepository, OrderRepository>();
+        services.AddScoped<IReportRepository, ReportRepository>();
     }
 }
