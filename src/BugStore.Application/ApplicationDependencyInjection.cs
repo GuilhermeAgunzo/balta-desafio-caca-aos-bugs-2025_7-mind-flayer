@@ -1,9 +1,11 @@
 ﻿using BugStore.Application.Abstractions.Handlers.Customers;
 using BugStore.Application.Abstractions.Handlers.Orders;
 using BugStore.Application.Abstractions.Handlers.Products;
+using BugStore.Application.Abstractions.Handlers.Reports;
 using BugStore.Application.Handlers.Customers;
 using BugStore.Application.Handlers.Orders;
 using BugStore.Application.Handlers.Products;
+using BugStore.Application.Handlers.Reports;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace BugStore.Application;
@@ -28,5 +30,8 @@ public static class ApplicationDependencyInjection
         services.AddScoped<IGetProductByIdHandler, GetProductByIdHandler>();
         services.AddScoped<IGetProductsHandler, GetProductsHandler>();
         services.AddScoped<IUpdateProductHandler, UpdateProductHandler>();
+
+        services.AddScoped<ICustomerOrderSummaryReportHandler, CustomerOrderSummaryReportHandler>();
+        services.AddScoped<IRevenueByPeriodReportHandler, RevenueByPeriodReportHandler>();
     }
 }
