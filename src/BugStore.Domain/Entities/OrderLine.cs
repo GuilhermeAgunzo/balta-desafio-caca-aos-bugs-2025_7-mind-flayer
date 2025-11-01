@@ -12,7 +12,7 @@ public class OrderLine : Notifiable<Notification>
     public decimal Total { get; private set; }
 
     public Guid ProductId { get; private set; }
-    public Product Product { get; private set; } = null!;
+    public Product Product { get; set; } = null!;
 
     public OrderLine() { }
 

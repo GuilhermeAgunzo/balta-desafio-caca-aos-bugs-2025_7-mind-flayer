@@ -7,7 +7,7 @@ public class Order : Notifiable<Notification>
 {
     public Guid Id { get; private set; }
     public Guid CustomerId { get; private set; }
-    public Customer Customer { get; private set; } = null!;
+    public Customer Customer { get; set; } = null!;
 
     public DateTime CreatedAt { get; private set; }
     public DateTime UpdatedAt { get; private set; }

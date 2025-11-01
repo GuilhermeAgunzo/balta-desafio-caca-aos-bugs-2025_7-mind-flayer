@@ -26,7 +26,7 @@ public class ReportRepository(AppDbContext db) : IReportRepository
                 SUM(ol.Total) AS TotalRevenue
             FROM Orders o
             JOIN OrderLines ol ON o.Id = ol.OrderId
-            WHERE o.CreatedAt BETWEEN {startDate} AND {endDate}
+            WHERE DATE(o.CreatedAt) BETWEEN DATE({startDate}) AND DATE({endDate})
             GROUP BY Year, Month
             ORDER BY Year, Month
         ").ToListAsync(cancellationToken);

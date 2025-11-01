@@ -17,6 +17,12 @@ public class OrderRepository(AppDbContext db) : IOrderRepository
             if (!order.IsValid)
                 return Result<Order>.Fail("INVALID_ENTITY: Order is not valid");
 
+            order.Customer = null; // To avoid EF trying to insert/update the Customer entity
+            foreach (var line in order.Lines)
+            {
+                line.Product = null; // To avoid EF trying to insert/update the Product entity
+            }
+
             await db.Orders.AddAsync(order, cancellationToken);
             await db.SaveChangesAsync(cancellationToken);
 

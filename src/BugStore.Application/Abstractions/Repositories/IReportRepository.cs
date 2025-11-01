@@ -10,5 +10,5 @@ namespace BugStore.Application.Abstractions.Repositories;
 public interface IReportRepository
 {
     Task<List<CustomerOrderSummary>> GetCustomerOrderSummaryReportAsync(CancellationToken cancellationToken = default);
-    Task<List<RevenueByPeriod>> GetRevenueByPeriodReportAsync(DateTime startDate, DateTime endDate, CancellationToken cancellationToken = default)
+    Task<List<RevenueByPeriod>> GetRevenueByPeriodReportAsync(DateTime startDate, DateTime endDate, CancellationToken cancellationToken = default);
 }

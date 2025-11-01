@@ -18,6 +18,7 @@ public static class ApplicationDependencyInjection
         services.AddScoped<IDeleteCustomerHandler, DeleteCustomerHandler>();
         services.AddScoped<IGetCustomerByEmailHandler, GetCustomerByEmailHandler>();
         services.AddScoped<IGetCustomerByIdHandler, GetCustomerByIdHandler>();
+        services.AddScoped<IGetCustomersHandler, GetCustomersHandler>();
         services.AddScoped<IUpdateCustomerHandler, UpdateCustomerHandler>();
 
         services.AddScoped<ICreateOrderHandler, CreateOrderHandler>();
